@@ -1,0 +1,8 @@
+<section class="item-report" (click)="navigateToID()">
+    <img [src]="item.img" alt="Imagen del Reporte" class="report-image" />
+    <p id="id">ID: {{item.id}}</p>
+    <p>Nombre: {{item.name}}</p>
+    <p>Estado: {{item.estado ? 'Activo' : 'Inactivo'}}</p>
+    <p>Descripción: {{item.description}}</p>
+    <p>Fecha: {{item.date | date:'short'}}</p>
+</section>

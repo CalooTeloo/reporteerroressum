@@ -1,0 +1,10 @@
+.report-list-container {
+    padding: 20px;
+    background-color: #ce3535;
+}
+
+.report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

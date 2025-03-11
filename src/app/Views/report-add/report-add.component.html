@@ -1,0 +1,33 @@
+<section class="report-form-container">
+    <form class="report-form" (submit)="onSubmit($event)">
+
+        <div class="form-group">
+            <app-camara (imageCaptured)="imgUrl = $event"></app-camara>
+        </div>
+
+        <div class="form-group">
+            <label for="idReport">ID del Reporte:</label>
+            <input type="text" name="idReport" required class="form-control" [(ngModel)]="report.id" />
+        </div>
+
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" required class="form-control" [(ngModel)]="report.name" />
+        </div>
+
+        <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea name="description" required class="form-control" [(ngModel)]="report.description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            <select name="estado" class="form-control" [(ngModel)]="report.estado">
+                <option [value]="true">Activo</option>
+                <option [value]="false">Inactivo</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-primary">Guardar Reporte</button>
+    </form>
+</section>
