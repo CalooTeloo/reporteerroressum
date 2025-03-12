@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CamaraComponent } from '../../Camera/camara/camara.component';
 import { ModReport } from '../../Models/mod-report.mode';
 import { ServiceReportService } from '../../Services/service-report.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-report-add',
-  imports: [CamaraComponent, FormsModule],
+  imports: [CamaraComponent, FormsModule, NgIf],
   templateUrl: './report-add.component.html',
   styleUrls: ['./report-add.component.css'],
   standalone: true,
 })
 export class ReportAddComponent {
+  @ViewChild('reportForm') reportForm!: NgForm;
+  @ViewChild(CamaraComponent) cameraComponent!: CamaraComponent;
+
+
   report: ModReport = {
     id: '',
     name: '',
@@ -20,17 +25,23 @@ export class ReportAddComponent {
     date: '',
     estado: true,
   };
-  imgUrl: string = 'imageCaptured';
+  imgUrl: string = '';
+  isEditMode: boolean = false;
 
   constructor(private reportService: ServiceReportService) { }
 
-  onSubmit(event: Event) {
-    event.preventDefault();
-    this.report.img = this.imgUrl;
-    this.report.date = new Date().toISOString();
-    this.reportService.saveReport(this.report);
-    console.log('Reporte guardado', this.report);
-    this.resetForm();
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      const newReport: ModReport = {
+        ...this.report,
+        img: this.imgUrl,
+        date: new Date().toISOString()
+      };
+      // Normalizar el ID antes de guardar
+      this.report.id = this.report.id.trim().toUpperCase();
+      this.reportService.saveReport(newReport);
+      this.resetForm();
+    }
   }
 
   private resetForm() {
@@ -43,5 +54,10 @@ export class ReportAddComponent {
       estado: true,
     };
     this.imgUrl = '';
+    this.reportForm.resetForm();
+    // Resetear el componente de cámara si existe
+    if (this.cameraComponent) {
+      this.cameraComponent.resetState(); // Asegurar que el método sea público
+    }
   }
 }

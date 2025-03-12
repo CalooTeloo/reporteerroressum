@@ -1,10 +1,103 @@
+/* Estilos generales para el contenedor de la lista de reportes */
 .report-list-container {
     padding: 20px;
-    background-color: #ce3535;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
 }
 
+/* Estilos para el área de búsqueda y filtro */
+.search-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-filter input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-filter input:focus {
+    border-color: #1abc9c;
+}
+
+.search-filter select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-filter select:focus {
+    border-color: #1abc9c;
+}
+
+/* Estilos para la lista de reportes */
 .report-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+/* Estilos para cada ítem de reporte (app-report-item) */
+app-report-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+app-report-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Media Queries para responsive design */
+@media (max-width: 768px) {
+    .report-list-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .search-filter input,
+    .search-filter select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    app-report-item {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .report-list-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .search-filter {
+        flex-direction: column;
+    }
+
+    .search-filter input,
+    .search-filter select {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    app-report-item {
+        padding: 8px;
+    }
 }

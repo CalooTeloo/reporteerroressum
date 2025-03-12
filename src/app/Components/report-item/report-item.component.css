@@ -1,18 +1,139 @@
+/* Estilos generales para el contenedor del ítem de reporte */
 .item-report {
-    background-color: #fff;
-    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .item-report:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Estilos para la imagen del reporte */
 .report-image {
+    width: 100%;
     max-width: 100%;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Estilos para los textos del ítem de reporte */
+.item-report p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #34495e;
+}
+
+.item-report p#id {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Estilos para el grupo de botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-group button:hover {
+    transform: translateY(-2px);
+}
+
+.button-group button:first-child {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+.button-group button:first-child:hover {
+    background-color: #16a085;
+}
+
+.button-group button:nth-child(2) {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.button-group button:nth-child(2):hover {
+    background-color: #2980b9;
+}
+
+.button-group button:last-child {
+    background-color: #e74c3c;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.button-group button:last-child:hover {
+    background-color: #c0392b;
+}
+
+.button-group button .material-icons-round {
+    font-size: 16px;
+}
+
+/* Media Queries para responsive design */
+@media (max-width: 768px) {
+    .item-report {
+        padding: 15px;
+    }
+
+    .item-report p {
+        font-size: 12px;
+    }
+
+    .button-group button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .button-group button .material-icons-round {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .item-report {
+        padding: 10px;
+    }
+
+    .item-report p {
+        font-size: 12px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .button-group button {
+        width: 100%;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .button-group button .material-icons-round {
+        font-size: 14px;
+    }
 }

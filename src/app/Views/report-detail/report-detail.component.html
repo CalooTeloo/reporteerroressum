@@ -1,1 +1,27 @@
-<p>report-detail works!</p>
+<section class="detail-container">
+    <div class="detail-content card">
+        <h2>Detalles del Reporte</h2>
+        <img [src]="Reportselected.img" alt="Imagen del reporte" class="detail-image">
+        <div class="detail-info">
+            <p><strong>ID:</strong> {{ Reportselected.id }}</p>
+            <p><strong>Nombre:</strong> {{ Reportselected.name }}</p>
+            <p><strong>Estado:</strong> {{ Reportselected.estado ? 'Activo' : 'Inactivo' }}</p>
+            <p><strong>Descripción:</strong> {{ Reportselected.description }}</p>
+            <p><strong>Fecha:</strong> {{ Reportselected.date | date:'medium' }}</p>
+        </div>
+        <div class="action-buttons">
+            <button (click)="gotoHome()" class="btn-primary">Regresar</button>
+            <button (click)="gotoEdit()" class="btn-primary">Editar</button>
+        </div>
+    </div>
+
+    <div class="change-history card" *ngIf="Reportselected.changeHistory?.length">
+        <h3>Historial de Cambios</h3>
+        <div class="change-item" *ngFor="let log of Reportselected.changeHistory">
+            <p class="change-date">{{ log.date | date:'medium' }}</p>
+            <ul>
+                <li *ngFor="let change of log.changes">{{ change }}</li>
+            </ul>
+        </div>
+    </div>
+</section>

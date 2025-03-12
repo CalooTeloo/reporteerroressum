@@ -1,0 +1,187 @@
+/* Estilos generales para el contenedor de detalles */
+.detail-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-content h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la imagen del reporte */
+.detail-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    align-self: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la información del reporte */
+.detail-info {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.detail-info p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #34495e;
+}
+
+.detail-info p strong {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Estilos para los botones de acción */
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.back-button:hover {
+    background-color: #c0392b;
+}
+
+.edit-button {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+.edit-button:hover {
+    background-color: #16a085;
+}
+
+/* Estilos para el historial de cambios */
+.change-history {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.change-history h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.change-item {
+    margin-bottom: 15px;
+}
+
+.change-date {
+    font-size: 14px;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.change-item ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.change-item li {
+    font-size: 14px;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+/* Media Queries para responsive design */
+@media (max-width: 768px) {
+    .detail-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .detail-content h2 {
+        font-size: 20px;
+    }
+
+    .detail-info p {
+        font-size: 14px;
+    }
+
+    .action-buttons button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .change-history h3 {
+        font-size: 18px;
+    }
+
+    .change-date,
+    .change-item li {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .detail-content h2 {
+        font-size: 18px;
+    }
+
+    .detail-info p {
+        font-size: 12px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .action-buttons button {
+        width: 100%;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .change-history h3 {
+        font-size: 16px;
+    }
+
+    .change-date,
+    .change-item li {
+        font-size: 12px;
+    }
+}

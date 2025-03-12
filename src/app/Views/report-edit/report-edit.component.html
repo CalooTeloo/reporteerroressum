@@ -1,14 +1,17 @@
 <section class="report-form-container">
-    <form #reportForm="ngForm" (ngSubmit)="onSubmit(reportForm)" class="report-form">
+    <form #editForm="ngForm" (ngSubmit)="onSubmit()">
+        <h2>Editar Reporte</h2>
+
         <div class="form-group">
-            <app-camara (imageCaptured)="imgUrl = $event"></app-camara>
-            <small *ngIf="imgUrl" class="photo-status">✔ Foto capturada</small>
+            <app-camara [initialImage]="originalImg" (imageCaptured)="updateImage($event)">
+            </app-camara>
+            <small *ngIf="report.img" class="photo-status">✔ Foto actualizada</small>
         </div>
 
         <div class="form-group">
             <label for="idReport">ID del Reporte:</label>
             <input type="text" id="idReport" name="idReport" required class="form-control" [(ngModel)]="report.id"
-                placeholder="Ejemplo: EQ-2024-001" #idInput="ngModel" pattern="^[A-Za-z]{2,3}-\d{4}-\d{3}$">
+                placeholder="Ejemplo: EQ-2024-001" pattern="^[A-Za-z]{2,3}-\d{4}-\d{3}$" #idInput="ngModel" readonly>
 
             <div *ngIf="idInput.invalid && (idInput.dirty || idInput.touched)" class="validation-error">
                 <div *ngIf="idInput.errors?.['required']">
@@ -19,7 +22,6 @@
                 </div>
             </div>
         </div>
-
         <div class="form-group">
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="report.name"
@@ -40,9 +42,8 @@
             </select>
         </div>
 
-        <button type="submit" class="btn-primary">
-            <span class="material-icons-round">save</span>
-            Guardar Reporte
+        <button type="submit" class="btn-primary" [disabled]="!editForm.valid">
+            Guardar Cambios
         </button>
     </form>
 </section>

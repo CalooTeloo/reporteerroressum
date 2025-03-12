@@ -13,8 +13,13 @@ export const routes: Routes = [
     },
 
     {
-        path: 'reports/:id',
+        path: 'report/:id',
         loadComponent: () => import('./Views/report-detail/report-detail.component').then(m => m.ReportDetailComponent)
+    },
+
+    {
+        path: 'report/edit/:id',
+        loadComponent: () => import('./Views/report-edit/report-edit.component').then(m => m.ReportEditComponent)
     },
 
     {

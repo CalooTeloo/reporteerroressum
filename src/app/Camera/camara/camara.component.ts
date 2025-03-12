@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { CameraService } from '../../camera/services/camera.service';
 import { NgIf } from '@angular/common';
 
@@ -14,6 +14,14 @@ export class CamaraComponent {
   errorMessage: string = '';
   loading: boolean = false;
   @Output() imageCaptured = new EventEmitter<string>(); // Asegúrate de que sea de tipo string
+  @Input() initialImage: string = '';
+
+
+  ngOnInit() {
+    if (this.initialImage) {
+      this.imgUrl = this.initialImage;
+    }
+  }
 
   async takePicture() {
     this.resetState(); // Limpiar el estado antes de tomar la foto
@@ -35,9 +43,10 @@ export class CamaraComponent {
     }
   }
 
-  private resetState() {
+  resetState() {
     this.errorMessage = '';
     this.imgUrl = '';
+    this.imageCaptured.emit(''); // Emitir cadena vacía para limpiar en el padre
   }
 
   private handleError(error: any) {

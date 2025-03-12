@@ -1,1 +1,106 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importación de fuentes e iconos */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
+
+:root {
+    --primary-color: #2A3F5F;
+    --secondary-color: #4CAF50;
+    --accent-color: #FFC107;
+    --background: #F8FAFC;
+    --text-dark: #1E293B;
+    --text-light: #FFFFFF;
+    --error-color: #DC2626;
+    --success-color: #16A34A;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--background);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header y Navegación */
+header {
+    background: var(--primary-color);
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.app-title {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    background: white;
+    padding: 0.5rem 1rem;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 57px;
+    z-index: 90;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: rgba(42, 63, 95, 0.05);
+}
+
+.nav-link.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding: 0.8rem;
+    }
+
+    .app-title {
+        font-size: 1.3rem;
+    }
+}

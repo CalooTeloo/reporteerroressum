@@ -1,8 +1,16 @@
-<section class="item-report" (click)="navigateToID()">
+<section class="item-report card">
     <img [src]="item.img" alt="Imagen del Reporte" class="report-image" />
     <p id="id">ID: {{item.id}}</p>
     <p>Nombre: {{item.name}}</p>
     <p>Estado: {{item.estado ? 'Activo' : 'Inactivo'}}</p>
     <p>Descripción: {{item.description}}</p>
     <p>Fecha: {{item.date | date:'short'}}</p>
+    <div class="button-group">
+        <button (click)="navigateToID()" class="btn-primary">Detalles</button>
+        <button (click)="navigateToEdit()" class="btn-primary">Editar</button>
+        <button (click)="deleteReport()" class="btn-danger">
+            <span class="material-icons-round">delete</span>
+            Eliminar
+        </button>
+    </div>
 </section>

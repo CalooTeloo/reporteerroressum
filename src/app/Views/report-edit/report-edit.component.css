@@ -1,0 +1,140 @@
+/* Estilos generales para el contenedor del formulario */
+.report-form-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.report-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #1abc9c;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Estilos para el componente de cámara */
+.form-group app-camara {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.photo-status {
+    display: block;
+    color: #1abc9c;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Estilos para los mensajes de validación */
+.validation-error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Estilos para el botón de envío */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #1abc9c;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #16a085;
+}
+
+/* Media Queries para responsive design */
+@media (max-width: 768px) {
+    .report-form-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .report-form-container h2 {
+        font-size: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .report-form-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .report-form-container h2 {
+        font-size: 18px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .btn-primary {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

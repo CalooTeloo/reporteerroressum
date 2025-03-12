@@ -1,6 +1,16 @@
 <section class="report-list-container">
-    <h2>Lista de Reportes</h2>
+    <div class="search-filter card">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar por nombre o descripción...">
+        <select [(ngModel)]="statusFilter">
+            <option value="all">Todos los estados</option>
+            <option value="true">Activos</option>
+            <option value="false">Inactivos</option>
+        </select>
+    </div>
+
     <div class="report-list">
-        <app-report-item *ngFor="let report of reports" [item]="report"></app-report-item>
+        <app-report-item *ngFor="let report of filteredReports" [item]="report"
+            (reportDeleted)="onReportDeleted(report.id)">
+        </app-report-item>
     </div>
 </section>
