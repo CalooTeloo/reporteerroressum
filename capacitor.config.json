@@ -1,0 +1,6 @@
+{
+  "appId": "com.repotelo.app",
+  "appName": "RepoTelo",
+  "webDir": "src",
+  "bundledWebRuntime": false
+}
